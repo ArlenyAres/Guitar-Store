@@ -1,10 +1,12 @@
 <script setup>
-const props = defineProps({
-  carrito: {
-    type: Array,
-    required: true,
-  },
-});
+    const props = defineProps({
+    carrito: {
+        type: Array,
+        required: true,
+    },
+    });
+
+    defineEmits(['incrementar-cantidad', 'decrementar-cantidad']);
 </script>
 
 <template>
@@ -64,6 +66,7 @@ const props = defineProps({
                                 <button 
                                 type="button" 
                                 class="btn btn-dark"
+                                @click="$emit('decrementar-cantidad', producto.id)"
                                 >
                                     -
                                 </button>
@@ -71,6 +74,7 @@ const props = defineProps({
                                 <button 
                                 type="button" 
                                 class="btn btn-dark"
+                                @click="$emit('incrementar-cantidad', producto.id)"
                                 >
                                     +
                                 </button>
